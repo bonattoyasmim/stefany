@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melhores Cidades Próximas de Curitiba</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .cidade {
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            width: 30%;
+            text-align: center;
+        }
+
+        .cidade img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .cidade h3 {
+            margin-top: 10px;
+        }
+
+        canvas {
+            margin: 20px auto;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Melhores Cidades Próximas de Curitiba</h1>
+    </header>
+
+    <section>
+        <div class="cidade">
+            <img src="https://example.com/foto-saojose.jpg" alt="São José dos Pinhais">
+            <h3>São José dos Pinhais</h3>
+            <p>Cidade com um dos principais aeroportos do Brasil e várias atrações.</p>
+        </div>
+        <div class="cidade">
+            <img src="https://example.com/foto-paranagua.jpg" alt="Paranaguá">
+            <h3>Paranaguá</h3>
+            <p>Uma cidade portuária histórica com belas paisagens e acesso ao mar.</p>
+        </div>
+        <div class="cidade">
+            <img src="https://example.com/foto-morretes.jpg" alt="Morretes">
+            <h3>Morretes</h3>
+            <p>Conhecida pela gastronomia (barreado) e pelas montanhas deslumbrantes.</p>
+        </div>
+    </section>
+
+    <canvas id="cityChart" width="400" height="200"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('cityChart').getContext('2d');
+        var cityChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['São José dos Pinhais', 'Paranaguá', 'Morretes'],
+                datasets: [{
+                    label: 'Popularidade (em %) entre turistas',
+                    data: [75, 85, 65],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
